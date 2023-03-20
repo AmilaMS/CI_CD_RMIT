@@ -19,5 +19,8 @@ jobs:
     - run: |
         cd ./src
         npm run build --if-present
+    - name: Linting and Static Code Analysis
+      run: |
+        npm run test-lint --prefix src
 
 
