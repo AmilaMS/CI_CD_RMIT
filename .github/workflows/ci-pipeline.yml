@@ -34,4 +34,4 @@ jobs:
     - name: npm run test:e2e
       run: |
         cd ./src
-        npm run test:e2e
+        npm run test-e2e
