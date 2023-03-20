@@ -13,6 +13,7 @@ router.post('/', async (req, res) => {
   });
   try {
     note = await note.save();
+    console.log(note);
     res.redirect('/');
   } catch (e) {
     console.log(e);
