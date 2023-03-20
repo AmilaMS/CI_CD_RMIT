@@ -22,8 +22,12 @@ jobs:
     - name: Linting and Static Code Analysis
       run: |
         npm run test-lint --prefix src
-    - name: Unit Tests
+    - name: Integration Tests
+      env:
+        MONGO_URL: mongodb://localhost:27017/notes-app-test
       run: |
-        npm run test-unit --prefix src
+        docker-compose up -d
+        npm run test-integration --prefix src
+        docker-compose down
 
 
