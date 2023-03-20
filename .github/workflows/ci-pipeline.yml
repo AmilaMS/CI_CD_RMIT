@@ -29,9 +29,11 @@ jobs:
         docker-compose up -d
         npm run test-integration --prefix src
         docker-compose down
-    - name: install playwright browsers
-      run: npx playwright install --with-deps
+    - name: Unit coverage
+      run: |
+        cd ./src
+        npm run test-unit --prefix src
     - name: npm run test:e2e
       run: |
         cd ./src
-        npm run test-e2e
+        npm run test-e2e --prefix src
