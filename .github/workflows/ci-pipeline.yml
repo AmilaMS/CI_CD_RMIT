@@ -22,5 +22,8 @@ jobs:
     - name: Linting and Static Code Analysis
       run: |
         npm run test-lint --prefix src
+    - name: Unit Tests
+      run: |
+        npm run test-unit --prefix src
 
 
