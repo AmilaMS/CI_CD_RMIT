@@ -12,6 +12,7 @@ jobs:
       with:
         node-version: '19.x'
         cache: 'npm'
+        working-directory: ./src/package-lock.json
     - name: Install dependencies
-      run: npm install
+      run: npm ci
     - run: npm test
