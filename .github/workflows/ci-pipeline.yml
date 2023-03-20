@@ -12,5 +12,11 @@ jobs:
         node-version: '19.x'
         cache: 'npm'
         cache-dependency-path: src/package-lock.json
-    - run: npm install
+    - name: Install packages
+      run: |
+        cd src/package-lock.json 
+        npm ci
     - run: npm test
+
+
+
