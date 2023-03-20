@@ -29,12 +29,15 @@ jobs:
         docker-compose up -d
         npm run test-integration --prefix src
         docker-compose down
-    - name: End-to-End Tests
-      env:
-        SERVER_URL: http://localhost:3000
-      run: |
-        docker-compose up -d
-        npm run start --prefix src &
-        npm run test-e2e --prefix src
-        docker-compose down
-
+  tests_e2e:
+    name: Run end-to-end tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: install dependencies
+        run: npm ci
+      - name: install playwright browsers
+        run: npx playwright install --with-deps
+      - name: npm run test:e2e
+        run: npm run test:e2e=
